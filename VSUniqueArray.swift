@@ -7,25 +7,22 @@
 
 import Foundation
 
-protocol VSUniqueArray
+extension Array where Element: Equatable
 {
-    func getUniqueValues<T: Equatable>(aCollection: Array<T>) -> Array<T>
-}
-
-extension VSUniqueArray
-{
-    func getUniqueValues<T: Equatable>(aCollection: Array<T>) -> Array<T>
+    var uniqueValues: Array<Element>
     {
-        var collection = Array<T>()
-        
-        for element: T in aCollection
-        {
-            if !collection.contains(element)
+        get {
+            var collection = Array<T>()
+            
+            for element: T in aCollection
             {
-                collection.append(element)
+                if !collection.contains(element)
+                {
+                    collection.append(element)
+                }
             }
+            
+            return collection
         }
-        
-        return collection
     }
 }
