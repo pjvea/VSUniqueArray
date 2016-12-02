@@ -5,16 +5,16 @@
 //  Copyright © 2015 Vea Software. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 extension Array where Element: Equatable
 {
     var uniqueValues: Array<Element>
     {
         get {
-            var collection = Array<T>()
+            var collection = Array<Element>()
             
-            for element: T in aCollection
+            for element: Element in collection
             {
                 if !collection.contains(element)
                 {
